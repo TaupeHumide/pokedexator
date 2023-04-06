@@ -5,23 +5,22 @@ import './App.css'
 import PokemonCard from './components/pokemonCard'
 import React from "react";
 
-const pokemonList = [
-  {
-    name: "bulbasaur",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    name: "mew",
-  },
-];
 
 function App() {
+  const pokemonList = [
+    { name: "Pikachu", image: "https://www.pokebip.com/pokedex-images/ecarlate-violet/300/25.png?v=ev2" },
+    { name: "Charizard", image: "https://www.pokebip.com/pokedex-images/ecarlate-violet/300/6.png?v=ev2" },
+    { name: "Squirtle", image: "https://www.pokebip.com/pokedex-images/300/7.png?v=ev2" }
+  ];
+
   return (
     <div>
-      <PokemonCard pokemon={pokemonList[0]} />
+      {pokemonList.map(pokemon => (
+        <PokemonCard pokemon={pokemon} />
+      ))}
     </div>
   );
 }
+
 
 export default App;
