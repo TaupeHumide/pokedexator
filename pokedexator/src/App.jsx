@@ -3,6 +3,7 @@ import PokemonCard from './components/pokemonCard'
 import React from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import NavBar from './components/navbar'
 
 const pokemonList = [
   {
@@ -34,7 +35,7 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  PokemonCard.propType = {
+  PokemonCard.propTypes = {
     pokemon: PropTypes.shape({
       name: PropTypes.string.isRequired,
       imgSrc: PropTypes.string
@@ -55,14 +56,13 @@ function App() {
 
   return (
     <div>
-      <h1>{pokemonList[pokemonIndex].name}</h1>
-      <img src={pokemonList[pokemonIndex].imgSrc} alt={pokemonList[pokemonIndex].name} />
-      <div>
-        {pokemonIndex > 0 && <button onClick={handlePrevClick}>Précédent</button>}
-        {pokemonIndex < pokemonList.length - 1 && <button onClick={handleNextClick}>Suivant</button>}
-      </div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      <NavBar next={handleNextClick} previous={handlePrevClick}/>
     </div>
   );
 }
 
 export default App;
+
+
+
