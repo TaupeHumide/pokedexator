@@ -1,15 +1,12 @@
-import PropTypes from "prop-types"
+function NavBar({onSelect, pokemonList}) {
+    
+  return <div>
+  {pokemonList.map((pokemon, index) =>(
+  <button key={index} onClick={() => onSelect(index)}>{pokemon.name}</button>
+  ))}
+  
+  </div>
 
+};
 
-function NavBar({ next, previous }) {
-
-  return (
-    <div>
-      <button onClick={previous}>Previous</button>
-      <button onClick={next}>Next</button>
-    </div>
-  )
-}
-
-
-export default NavBar
+export default NavBar;

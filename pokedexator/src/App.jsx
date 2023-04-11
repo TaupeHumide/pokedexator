@@ -2,7 +2,7 @@ import './App.css'
 import PokemonCard from './components/pokemonCard'
 import React from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from './components/navbar'
 
 const pokemonList = [
@@ -54,15 +54,14 @@ function App() {
     }
   };
 
+  const selectPokemon = (index) => { setPokemonIndex(index) }
+
   return (
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      <NavBar next={handleNextClick} previous={handlePrevClick}/>
+      <NavBar onSelect={selectPokemon} pokemonList={pokemonList} />
     </div>
   );
-}
+};
 
 export default App;
-
-
-

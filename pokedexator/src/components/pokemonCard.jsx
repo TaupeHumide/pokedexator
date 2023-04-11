@@ -6,6 +6,6 @@ function PokemonCard(props) {
       <figcaption>{props.pokemon.name}</figcaption>
     </figure>
   );
-}
+};
 
 export default PokemonCard;
